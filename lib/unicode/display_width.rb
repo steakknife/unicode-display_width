@@ -22,7 +22,7 @@ class << Unicode::DisplayWidth
 
   def codepoint(n)
     n = n.to_s.unpack('U')[0] unless n.is_a? Integer
-    table[n] or raise ArgumentError, 'codepoint not found'
+    table[n] or raise ArgumentError, "codepoint U+#{format('%04X', n)} not found"
   end
   alias width codepoint
   alias of    codepoint
